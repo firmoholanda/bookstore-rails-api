@@ -7,4 +7,6 @@ class Book < ApplicationRecord
   validates_presence_of :title, :description, :category
 
   validates :title, length: { in: 5..30 }
+  validates :description, length: { in: 5..50 }
+  validates :category, length: { in: 5..30 }
 end
