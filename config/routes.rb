@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
-  get 'users/Books'
-  get 'users/Favourites'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :books, only: %i[index show]
+
+  #get 'users/Books'
+  #get 'users/Favourites'
+  
+  # post
+  post 'auth/login', to: 'authentication#authenticate'
+  post 'signup', to: 'users#create'
+  post 'favourites', to: 'favourites#create'
+
+  # get
+  get 'favourites', to: 'favourites#index'
+
+  # delete
+  delete 'favourites', to: 'favourites#destroy'
+
 end
