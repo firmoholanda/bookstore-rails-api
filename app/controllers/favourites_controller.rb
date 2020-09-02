@@ -1,4 +1,5 @@
 class FavouritesController < ApplicationController
+  
   def index
     @favourites = current_user.favourite_books
 
@@ -24,4 +25,5 @@ class FavouritesController < ApplicationController
   def favourite_params
     params.permit(:book_id)
   end
+
 end
