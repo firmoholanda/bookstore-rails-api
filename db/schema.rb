@@ -40,6 +40,6 @@ ActiveRecord::Schema.define(version: 2020_08_31_185743) do
   end
 
   add_foreign_key "books", "users"
-  add_foreign_key "favourites", "listings"
+  add_foreign_key "favourites", "books"
   add_foreign_key "favourites", "users"
 end
