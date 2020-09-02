@@ -7,12 +7,17 @@ Rails.application.routes.draw do
   post 'auth/login', to: 'authentication#authenticate'
 
   # books
-  post 'books', to: 'books#create'
   get 'books', to: 'books#index'
+  post 'books', to: 'books#create'
+  get 'books/:id', to: 'books#show'
+  put 'books/:id', to: 'books#update'
+  delete 'books/:id', to: 'books#destroy'
+  #resources :books
 
   # favourites
-  post 'favourites', to: 'favourites#create'
   get 'favourites', to: 'favourites#index'
-  delete 'favourites', to: 'favourites#destroy'
+  post 'favourites/:book_id', to: 'favourites#create'
+  delete 'favourites/:book_id', to: 'favourites#destroy'
+
 
 end
