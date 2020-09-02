@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
-  resources :books, only: %i[index show]
 
-  #get 'users/Books'
-  #get 'users/Favourites'
-  
-  # post
-  post 'auth/login', to: 'authentication#authenticate'
+  # user
   post 'signup', to: 'users#create'
+  
+  # authentication
+  post 'auth/login', to: 'authentication#authenticate'
+
+  # books
+  post 'books', to: 'books#create'
+  get 'books', to: 'books#index'
+
+  # favourites
   post 'favourites', to: 'favourites#create'
-
-  # get
   get 'favourites', to: 'favourites#index'
-
-  # delete
   delete 'favourites', to: 'favourites#destroy'
 
 end
