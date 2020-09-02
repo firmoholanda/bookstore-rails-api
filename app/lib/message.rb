@@ -20,14 +20,14 @@ class Message
   end
 
   def self.account_created
-    'sccount created successfully'
+    'account created successfully'
   end
 
   def self.account_not_created
-    'sccount could not be created'
+    'account could not be created'
   end
 
   def self.expired_token
-    'dorry, your token has expired. please login to continue.'
+    'sorry, your token has expired. please login to continue.'
   end
 end
