@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 2020_08_31_185743) do
 
   create_table "favourites", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "listing_id"
+    t.integer "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["listing_id"], name: "index_favourites_on_listing_id"
+    t.index ["book_id"], name: "index_favourites_on_book_id"
     t.index ["user_id"], name: "index_favourites_on_user_id"
   end
 
