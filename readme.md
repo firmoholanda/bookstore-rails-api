@@ -61,6 +61,42 @@ run tests:
 $ bundle exec rspec
 ```
 
+httpie usage examples:
+
+- download httpie from: https://httpie.org/
+- start development derver:
+- test the following commands. have fun!
+
+# signup user
+http POST :3000/signup name=holanda email=holanda@email.com password=foobar password_confirmation=foobar
+
+# auth user
+http POST :3000/auth/login email=holanda@email.com password=foobar
+
+# list books from user
+http GET localhost:3000/books Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTkyMzA5NDV9.PCS_vbfRlFuTAw9iNQNBMlB2NF37ZBhneZjoicy6EJE"
+
+# add book
+http POST localhost:3000/books title=book01 description=desc_book01 category=cat01 Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTkyMzA5NDV9.PCS_vbfRlFuTAw9iNQNBMlB2NF37ZBhneZjoicy6EJE"
+
+# show books from user
+http GET localhost:3000/books/3 Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTkxMTI1OTF9.rqI8cb52VlB6uTowgMEQEA7UrFEtfkD6bcnYDezJOSE"
+
+# update book
+http PUT localhost:3000/books/3 title=book099 Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTkxMTI1OTF9.rqI8cb52VlB6uTowgMEQEA7UrFEtfkD6bcnYDezJOSE"
+
+# delete book
+http DELETE localhost:3000/books/3 Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTkxMTI1OTF9.rqI8cb52VlB6uTowgMEQEA7UrFEtfkD6bcnYDezJOSE"
+
+# get favorites from user
+http GET localhost:3000/favourites Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTkyMzA5NDV9.PCS_vbfRlFuTAw9iNQNBMlB2NF37ZBhneZjoicy6EJE"
+
+# add favourite book
+http POST localhost:3000/favourites/3 Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTkxMTI1OTF9.rqI8cb52VlB6uTowgMEQEA7UrFEtfkD6bcnYDezJOSE"
+
+# delete favourite book
+http DELETE localhost:3000/favourites/3 Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTkxMTI1OTF9.rqI8cb52VlB6uTowgMEQEA7UrFEtfkD6bcnYDezJOSE"
+
 
 ## 🤝 contributing
 
