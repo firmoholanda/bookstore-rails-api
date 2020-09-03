@@ -1,13 +1,21 @@
 FORMAT: 1A
-HOST: https://polls.apiblueprint.org/
+HOST: https://app.apiary.io/bookstorerailsapi/
 
 # bookstore-rails-api
 
 this REST api alows to manage database resources. a signed user can: add, remove, list and update books as well as select a favourite book.
 
-## signup user [/signup]
 
-### signup?  [POST]
+# Group users
+
+## signup [/signup?name={name}&email={email}&password={password}&password_confirmation={password_confirmation}]
++ Parameters
+    + name (string) - user name
+    + email (string) - user email
+    + password (string) - user password
+    + password_confirmation (string) - user password confirmation
+
+### signup [POST]
 
 + response 201
 
@@ -32,3 +40,383 @@ this REST api alows to manage database resources. a signed user can: add, remove
                 "auth_token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE1OTkyMjc0Mzl9.MPcxrXofsMXpTce9yDnC_wCnf4J5XIgAy9k_jeZtdNg",
                 "message": "user created successfully"
             }
+            
+
+## authenticate [/auth/login?email={email}&password={password}]
++ Parameters
+    + email (string) - user email
+    + password (string) - user password
+
+### authenticate [POST]
+
++ response 201
+    + Headers
+
+            Cache-Control: max-age=0, private, must-revalidate
+            Content-Type: application/json; charset=utf-8
+            ETag: W/"2965003ec7281d310f9bcebfde1e0268"
+            Referrer-Policy: strict-origin-when-cross-origin
+            Transfer-Encoding: chunked
+            X-Content-Type-Options: nosniff
+            X-Download-Options: noopen
+            X-Frame-Options: SAMEORIGIN
+            X-Permitted-Cross-Domain-Policies: none
+            X-Request-Id: eb0bd716-368f-4fba-86a0-a96e8c6e94be
+            X-Runtime: 0.603285
+            X-XSS-Protection: 1; mode=block
+
+    + Body
+
+            {
+            "auth_token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTkyMjk5NTF9.J6lpTupDAQq64rt5X2Tns5aefaq_BvT8bmJS-VqAQuI"
+            }
+            
+
+# Group books
+
+## list [/books]
++ `auth_token`
+
+### list books from user [GET]
++ Request
+    + Headers
+
+            Authentication: Bearer <JWT_TOKEN>
+
++ Response 200
+    + Headers
+
+            Cache-Control: max-age=0, private, must-revalidate
+            Content-Type: application/json; charset=utf-8
+            ETag: W/"7683813306b9c34fce16a78770d300b3"
+            Referrer-Policy: strict-origin-when-cross-origin
+            Transfer-Encoding: chunked
+            X-Content-Type-Options: nosniff
+            X-Download-Options: noopen
+            X-Frame-Options: SAMEORIGIN
+            X-Permitted-Cross-Domain-Policies: none
+            X-Request-Id: 2bc8e879-fc53-4c64-8120-d5b45ac30277
+            X-Runtime: 0.185376
+            X-XSS-Protection: 1; mode=block
+
+    + Body
+
+            [
+                {
+                    "category": "cat01",
+                    "created_at": "2020-09-02T06:36:10.581Z",
+                    "description": "desc_book01",
+                    "id": 2,
+                    "title": "book01",
+                    "updated_at": "2020-09-02T06:36:10.581Z",
+                    "user_id": 1
+                },
+                {
+                    "category": "cat03",
+                    "created_at": "2020-09-02T06:36:52.578Z",
+                    "description": "desc_book03",
+                    "id": 3,
+                    "title": "book099",
+                    "updated_at": "2020-09-02T17:43:13.606Z",
+                    "user_id": 1
+                },
+                {
+                    "category": "cat01",
+                    "created_at": "2020-09-02T15:03:49.098Z",
+                    "description": "desc_book01",
+                    "id": 11,
+                    "title": "book01",
+                    "updated_at": "2020-09-02T15:03:49.098Z",
+                    "user_id": 1
+                },
+                {
+                    "category": "cat01",
+                    "created_at": "2020-09-02T17:13:40.199Z",
+                    "description": "desc_book01",
+                    "id": 15,
+                    "title": "book01",
+                    "updated_at": "2020-09-02T17:13:40.199Z",
+                    "user_id": 1
+                }
+            ]
+
+
+## add [/books?title={title}&description={description}&category={category}]
+    + `auth_token`
+    
++ Parameters
+    + title (string) - book title
+    + description (string) - book description
+    + category (string) - book category
+
+### add books to user [POST]
++ Request
+    + Headers
+
+            Authentication: Bearer <JWT_TOKEN>
+
++ Response 200
+    + Headers
+
+            Cache-Control: max-age=0, private, must-revalidate
+            Content-Type: application/json; charset=utf-8
+            ETag: W/"c47ccf54316aa1e4c65606e0f12077e5"
+            Referrer-Policy: strict-origin-when-cross-origin
+            Transfer-Encoding: chunked
+            X-Content-Type-Options: nosniff
+            X-Download-Options: noopen
+            X-Frame-Options: SAMEORIGIN
+            X-Permitted-Cross-Domain-Policies: none
+            X-Request-Id: 4e8955bc-b8ab-44bb-b7d1-a39fb2bcd169
+            X-Runtime: 0.077663
+            X-XSS-Protection: 1; mode=block
+
+    + Body
+
+            {
+                "message": "book added successfully"
+            }
+            
+
+## show and delete [/books/{id}]
+    + `auth_token`
+    
++ Parameters
+    + id (integer) - book id
+
+### show books specific from user [POST]
++ Request
+    + Headers
+
+            Authentication: Bearer <JWT_TOKEN>
+
++ Response 200
+    + Headers
+
+            Cache-Control: max-age=0, private, must-revalidate
+            Content-Type: application/json; charset=utf-8
+            ETag: W/"a0f9f1e12bff0ef168ebd73c6db8d4b4"
+            Referrer-Policy: strict-origin-when-cross-origin
+            Transfer-Encoding: chunked
+            X-Content-Type-Options: nosniff
+            X-Download-Options: noopen
+            X-Frame-Options: SAMEORIGIN
+            X-Permitted-Cross-Domain-Policies: none
+            X-Request-Id: 27e98283-ad25-454f-ac49-7b0f78182e56
+            X-Runtime: 0.067476
+            X-XSS-Protection: 1; mode=block
+
+    + Body
+
+            {
+                "category": "cat03",
+                "created_at": "2020-09-02T06:36:52.578Z",
+                "description": "desc_book03",
+                "id": 3,
+                "title": "book099",
+                "updated_at": "2020-09-02T17:43:13.606Z",
+                "user_id": 1
+            }
+
+### delete book [DELETE]
++ Request
+    + Headers
+
+            Authentication: Bearer <JWT_TOKEN>
+
++ Response 200
+    + Headers
+
+            Cache-Control: max-age=0, private, must-revalidate
+            Content-Type: application/json; charset=utf-8
+            ETag: W/"4a69d45c226a74fd9e3739570aa2640e"
+            Referrer-Policy: strict-origin-when-cross-origin
+            Transfer-Encoding: chunked
+            X-Content-Type-Options: nosniff
+            X-Download-Options: noopen
+            X-Frame-Options: SAMEORIGIN
+            X-Permitted-Cross-Domain-Policies: none
+            X-Request-Id: e87e91e3-0f02-451b-aa0e-70534581ff0c
+            X-Runtime: 0.112836
+            X-XSS-Protection: 1; mode=block
+
+    + Body
+
+            {
+                "message": "book removed successfully"
+            }
+
+            
+
+## update [/books/{id}?title={title}&description={description}&category={category}]
+    + `auth_token`
+
++ Parameters
+    + id (integer) - book id
+    + title (string) - book title
+    + description (string) - book description
+    + category (string) - book category
+
+### update book from user [PUT]
++ Request
+    + Headers
+
+            Authentication: Bearer <JWT_TOKEN>
+
++ Response 200
+    + Headers
+
+            Cache-Control: max-age=0, private, must-revalidate
+            Content-Type: application/json; charset=utf-8
+            ETag: W/"a0f9f1e12bff0ef168ebd73c6db8d4b4"
+            Referrer-Policy: strict-origin-when-cross-origin
+            Transfer-Encoding: chunked
+            X-Content-Type-Options: nosniff
+            X-Download-Options: noopen
+            X-Frame-Options: SAMEORIGIN
+            X-Permitted-Cross-Domain-Policies: none
+            X-Request-Id: 27e98283-ad25-454f-ac49-7b0f78182e56
+            X-Runtime: 0.067476
+            X-XSS-Protection: 1; mode=block
+
+    + Body
+
+            {
+                "category": "cat03",
+                "created_at": "2020-09-02T06:36:52.578Z",
+                "description": "desc_book03",
+                "id": 3,
+                "title": "book099",
+                "updated_at": "2020-09-02T17:43:13.606Z",
+                "user_id": 1
+            }
+
+
+# Group favourites
+
+## list [/favourites]
++ `auth_token`
+
+### list favourites books from user [GET]
++ Request
+    + Headers
+
+            Authentication: Bearer <JWT_TOKEN>
+
++ Response 200
+    + Headers
+
+            Cache-Control: max-age=0, private, must-revalidate
+            Content-Type: application/json; charset=utf-8
+            ETag: W/"957b5939a4bf3a7f966506b30ef2b0af"
+            Referrer-Policy: strict-origin-when-cross-origin
+            Transfer-Encoding: chunked
+            X-Content-Type-Options: nosniff
+            X-Download-Options: noopen
+            X-Frame-Options: SAMEORIGIN
+            X-Permitted-Cross-Domain-Policies: none
+            X-Request-Id: 6bee8ec4-af70-4163-9f05-eb1a774b1a11
+            X-Runtime: 0.117454
+            X-XSS-Protection: 1; mode=block
+
+    + Body
+
+            [
+                {
+                    "category": "cat03",
+                    "created_at": "2020-09-02T06:36:52.578Z",
+                    "description": "desc_book03",
+                    "id": 3,
+                    "title": "book099",
+                    "updated_at": "2020-09-02T17:43:13.606Z",
+                    "user_id": 1
+                },
+                {
+                    "category": "cat01",
+                    "created_at": "2020-09-02T17:13:40.199Z",
+                    "description": "desc_book01",
+                    "id": 15,
+                    "title": "book01",
+                    "updated_at": "2020-09-02T17:13:40.199Z",
+                    "user_id": 1
+                }
+            ]
+            
+## add and delete [/favourites/{id}]
++ `auth_token`
+
++ Parameters
+    + id (integer) - favourites id
+
+### add favourite book to user [POST]
++ Request
+    + Headers
+
+            Authentication: Bearer <JWT_TOKEN>
+
++ Response 200
+    + Headers
+
+            Cache-Control: max-age=0, private, must-revalidate
+            Content-Type: application/json; charset=utf-8
+            ETag: W/"ef1f127c5189e8cb8a381b11e724c504"
+            Referrer-Policy: strict-origin-when-cross-origin
+            Transfer-Encoding: chunked
+            X-Content-Type-Options: nosniff
+            X-Download-Options: noopen
+            X-Frame-Options: SAMEORIGIN
+            X-Permitted-Cross-Domain-Policies: none
+            X-Request-Id: 0d97d0b3-e16c-42ae-8a88-0688cfe29f74
+            X-Runtime: 0.080343
+            X-XSS-Protection: 1; mode=block
+
+    + Body
+
+            {
+                "message": "book added to favourites successfully"
+            }
+            
+## delete [/favourites/{id}]
++ `auth_token`
+
++ Parameters
+    + id (integer) - favourites id
+
+### delete favourite book from user [DELETE]
++ Request
+    + Headers
+
+            Authentication: Bearer <JWT_TOKEN>
+
++ Response 200
+    + Headers
+
+            Cache-Control: max-age=0, private, must-revalidate
+            Content-Type: application/json; charset=utf-8
+            ETag: W/"ef1f127c5189e8cb8a381b11e724c504"
+            Referrer-Policy: strict-origin-when-cross-origin
+            Transfer-Encoding: chunked
+            X-Content-Type-Options: nosniff
+            X-Download-Options: noopen
+            X-Frame-Options: SAMEORIGIN
+            X-Permitted-Cross-Domain-Policies: none
+            X-Request-Id: 0d97d0b3-e16c-42ae-8a88-0688cfe29f74
+            X-Runtime: 0.080343
+            X-XSS-Protection: 1; mode=block
+
+    + Body
+
+            {
+                "message": "book added to favourites successfully"
+            }
+
+
+    
+
+# Data Structures
+
+## OAuth valid response (object)
++ `auth_token`: `eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1OTkyMzA5NDV9.PCS_vbfRlFuTAw9iNQNBMlB2NF37ZBhneZjoicy6EJE` (string, required) - valid JWT
+
+## Server response (object)
++ status: ok (string, required)
