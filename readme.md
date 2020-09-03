@@ -1,6 +1,6 @@
 # 📃 bookstore-rails-api
 
-api for bookstore-react-redux app
+api for bookstore-react-redux front-end app. this REST api alows to manage database resources. a signed user can: add, remove, list and update books as well as select a favourite book.
 
 
 ## 📡 technologies used
@@ -8,9 +8,11 @@ api for bookstore-react-redux app
 -	css
 -	ruby
 -	rails
+- SQLite
 - git
+- apiary.io (for documentation)
 
-css, ruby, rails and git was used on this project.
+css, ruby, rails, SQLite, git and apiary.io was used on this project.
 
 
 
@@ -19,7 +21,7 @@ css, ruby, rails and git was used on this project.
 this project can be found in https://github.com/firmoholanda/bookstore-rails-api
 
 
-### ✨ [live version]()
+### ✨ [api documentation](https://bookstorerailsapi.docs.apiary.io/)
 
 <a href="" target="_blank">
     <img alt="app image" src=""/>
