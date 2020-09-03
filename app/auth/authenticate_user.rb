@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# authenticate user
 class AuthenticateUser
   def initialize(email, password)
     @email = email
@@ -16,7 +19,8 @@ class AuthenticateUser
   # verify user credentials
   def user
     user = User.find_by(email: email)
-    return user if user && user.authenticate(password)
+    return user if user&.authenticate(password)
+
     # raise authentication error if credentials are invalid
     raise(ExceptionHandler::AuthenticationError, Message.invalid_credentials)
   end

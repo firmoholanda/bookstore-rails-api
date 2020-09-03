@@ -1,0 +1,19 @@
+<h4>favourites:</h4>
+<table class="table p-3 mb-3 table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">user_id</th>
+      <th scope="col">book_id</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% Favourite.all.each do |favourite| %>
+    <tr>
+      <td ><%= favourite.id %></td>
+      <td ><%= favourite.user_id %></td>
+      <td ><%= favourite.book_id %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

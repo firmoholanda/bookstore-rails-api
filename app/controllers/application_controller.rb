@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# app controller
 class ApplicationController < ActionController::API
   include Response
   include ExceptionHandler
@@ -11,5 +14,4 @@ class ApplicationController < ActionController::API
   def authorize_request
     @current_user = AuthorizeApiRequest.new(request.headers).call[:user]
   end
-  
 end

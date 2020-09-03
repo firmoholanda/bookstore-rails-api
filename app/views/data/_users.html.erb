@@ -1,0 +1,21 @@
+<h4>users:</h4>
+<table class="table p-3 mb-3 table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">name</th>
+      <th scope="col">email</th>
+      <th scope="col">password_digest</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% User.all.each do |user| %>
+    <tr>
+      <td ><%= user.id %></td>
+      <td ><%= user.name %></td>
+      <td ><%= user.email %></td>
+      <td ><%= user.password_digest %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

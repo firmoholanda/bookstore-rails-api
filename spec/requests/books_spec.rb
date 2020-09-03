@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Books API', type: :request do
@@ -38,7 +40,6 @@ RSpec.describe 'Books API', type: :request do
       it 'returns status code 404' do
         expect(response).to have_http_status(404)
       end
-
     end
   end
 end

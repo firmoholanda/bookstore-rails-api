@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class JsonWebToken
   # secret to encode and decode token
   HMAC_SECRET = Rails.application.secrets.secret_key_base
@@ -11,7 +13,7 @@ class JsonWebToken
 
   def self.decode(token)
     # get payload; first index in decoded Array
-    #body = JWT.decode(token, HMAC_SECRET)[0]
+    # body = JWT.decode(token, HMAC_SECRET)[0]
     body = JWT.decode(token, HMAC_SECRET, true, { algorithm: 'HS256' })[0]
 
     HashWithIndifferentAccess.new body
