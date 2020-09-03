@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'static#home'
+
   # user
   post 'signup', to: 'users#create'
   
