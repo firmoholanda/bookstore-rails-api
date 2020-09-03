@@ -3,78 +3,32 @@ HOST: https://polls.apiblueprint.org/
 
 # bookstore-rails-api
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+this REST api alows to manage database resources. a signed user can: add, remove, list and update books as well as select a favourite book.
 
-## Questions Collection [/questions]
+## signup user [/signup]
 
-### List All Questions [GET]
+### signup?  [POST]
 
-+ Response 200 (application/json)
-
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
-
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
-
-+ Response 201 (application/json)
++ response 201
 
     + Headers
 
-            Location: /questions/2
+            Cache-Control: max-age=0, private, must-revalidate
+            Content-Type: application/json; charset=utf-8
+            ETag: W/"4145e893615ab6e5eeb74afba5c37744"
+            Referrer-Policy: strict-origin-when-cross-origin
+            Transfer-Encoding: chunked
+            X-Content-Type-Options: nosniff
+            X-Download-Options: noopen
+            X-Frame-Options: SAMEORIGIN
+            X-Permitted-Cross-Domain-Policies: none
+            X-Request-Id: c1141ac6-f541-4269-b375-a02493396e28
+            X-Runtime: 0.892736
+            X-XSS-Protection: 1; mode=block
 
     + Body
 
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
+                "auth_token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE1OTkyMjc0Mzl9.MPcxrXofsMXpTce9yDnC_wCnf4J5XIgAy9k_jeZtdNg",
+                "message": "user created successfully"
             }
