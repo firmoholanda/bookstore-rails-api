@@ -24,7 +24,7 @@ this project can be found in https://github.com/firmoholanda/bookstore-rails-api
 ### ✨ [api documentation](https://bookstorerailsapi.docs.apiary.io/)
 
 <a href="" target="_blank">
-    <img alt="app image" src=""/>
+    <img alt="app image" src="https://github.com/firmoholanda/bookstore-rails-api/blob/release/app/assets/images/app_screenshot.png"/>
 </a>
 
 
