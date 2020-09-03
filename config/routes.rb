@@ -1,10 +1,11 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   root 'static#home'
 
   # user
   post 'signup', to: 'users#create'
-  
+
   # authentication
   post 'auth/login', to: 'authentication#authenticate'
 
@@ -14,12 +15,10 @@ Rails.application.routes.draw do
   get 'books/:id', to: 'books#show'
   put 'books/:id', to: 'books#update'
   delete 'books/:id', to: 'books#destroy'
-  #resources :books
+  # resources :books
 
   # favourites
   get 'favourites', to: 'favourites#index'
   post 'favourites/:book_id', to: 'favourites#create'
   delete 'favourites/:book_id', to: 'favourites#destroy'
-
-
 end

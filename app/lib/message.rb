@@ -1,5 +1,6 @@
-class Message
+# frozen_string_literal: true
 
+class Message
   # token
   def self.invalid_token
     'invalid token'
@@ -55,5 +56,4 @@ class Message
   def self.favourite_deleted
     'book removed from favourites successfully'
   end
-
 end

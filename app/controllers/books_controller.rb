@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :update, :destroy]
+  before_action :set_book, only: %i[show update destroy]
 
   # GET /books
   def index
@@ -9,7 +11,7 @@ class BooksController < ApplicationController
 
   # POST /books
   def create
-    @book = current_user.books.create!(book_params)    
+    @book = current_user.books.create!(book_params)
     json_response({ message: Message.book_created })
   end
 
@@ -30,7 +32,6 @@ class BooksController < ApplicationController
     json_response({ message: Message.book_deleted })
   end
 
-
   private
 
   def book_params
@@ -40,5 +41,4 @@ class BooksController < ApplicationController
   def set_book
     @book = Book.find(params[:id])
   end
-
 end
