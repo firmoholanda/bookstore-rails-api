@@ -14,6 +14,5 @@ jobs:
       - name: Setup Rubocop
         run: |
           gem install --no-document rubocop:'~>0.81.0' # https://docs.rubocop.org/en/stable/installation/
-          [ -f .rubocop.yml ]
       - name: Rubocop Report
         run: rubocop --color
