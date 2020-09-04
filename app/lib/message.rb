@@ -1,5 +1,4 @@
-# frozen_string_literal: true
-
+# message class
 class Message
   # token
   def self.invalid_token

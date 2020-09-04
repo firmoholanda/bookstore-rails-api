@@ -41,6 +41,16 @@ install dependencies:
 $ bundle install
 ```
 
+migrate db:
+```
+$ rake db:migrate
+```
+
+seed db:
+```
+$ bundle exec rake db:seed
+```
+
 start development derver:
 ```
 $ rails s
