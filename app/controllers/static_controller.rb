@@ -1,5 +1,4 @@
-# frozen_string_literal: true
-
+# static controller
 class StaticController < ActionController::Base
   layout 'static'
 

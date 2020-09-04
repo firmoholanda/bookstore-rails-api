@@ -1,5 +1,4 @@
-# frozen_string_literal: true
-
+# favourites controller
 class FavouritesController < ApplicationController
   # GET /favorites
   def index

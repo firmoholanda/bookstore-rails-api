@@ -1,5 +1,4 @@
-# frozen_string_literal: true
-
+# json web token class
 class JsonWebToken
   # secret to encode and decode token
   HMAC_SECRET = Rails.application.secrets.secret_key_base

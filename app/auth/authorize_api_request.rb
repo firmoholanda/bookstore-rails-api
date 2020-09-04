@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # authorize api request
 class AuthorizeApiRequest
   def initialize(headers = {})

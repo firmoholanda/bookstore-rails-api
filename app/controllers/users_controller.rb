@@ -1,5 +1,4 @@
-# frozen_string_literal: true
-
+# user controller
 class UsersController < ApplicationController
   skip_before_action :authorize_request, only: :create
 
