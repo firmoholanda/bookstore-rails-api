@@ -10,37 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_07_184308) do
-
-  create_table "books", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.string "category"
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_books_on_user_id"
+ActiveRecord::Schema.define(version: 20_200_907_184_308) do
+  create_table 'books', force: :cascade do |t|
+    t.string 'title'
+    t.string 'description'
+    t.string 'category'
+    t.integer 'user_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['user_id'], name: 'index_books_on_user_id'
   end
 
-  create_table "favourites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "book_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["book_id"], name: "index_favourites_on_book_id"
-    t.index ["user_id"], name: "index_favourites_on_user_id"
+  create_table 'favourites', force: :cascade do |t|
+    t.integer 'user_id'
+    t.integer 'book_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['book_id'], name: 'index_favourites_on_book_id'
+    t.index ['user_id'], name: 'index_favourites_on_user_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password_digest"
-    t.boolean "admin", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'users', force: :cascade do |t|
+    t.string 'name'
+    t.string 'email'
+    t.string 'password_digest'
+    t.boolean 'admin', default: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  add_foreign_key "books", "users"
-  add_foreign_key "favourites", "books"
-  add_foreign_key "favourites", "users"
+  add_foreign_key 'books', 'users'
+  add_foreign_key 'favourites', 'books'
+  add_foreign_key 'favourites', 'users'
 end
