@@ -1,6 +1,7 @@
 # books controller
 class BooksController < ApplicationController
   before_action :set_book, only: %i[show update destroy]
+  before_action :check_admin, only: %i[create update destroy]
 
   # GET /books
   def index
@@ -39,5 +40,9 @@ class BooksController < ApplicationController
 
   def set_book
     @book = Book.find(params[:id])
+  end
+
+  def check_admin
+    raise(ExceptionHandler::AuthenticationError, Message.not_admin) unless current_user.admin
   end
 end
