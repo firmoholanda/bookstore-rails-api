@@ -1,5 +1,9 @@
 # create admin user
-User.create!(name: 'firmo holanda', email: 'firmo@viize.com', admin: true, password: 'foobar', password_confirmation: 'foobar')
+User.create!(name: 'firmo holanda',
+             email: 'firmo@viize.com',
+             admin: true,
+             password: 'foobar',
+             password_confirmation: 'foobar')
 
 2.times do |n|
   name = Faker::Name.name.downcase
