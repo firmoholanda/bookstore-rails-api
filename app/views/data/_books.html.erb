@@ -1,0 +1,23 @@
+<h4>books:</h4>
+<table class="table p-3 mb-3 table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">title</th>
+      <th scope="col">description</th>
+      <th scope="col">category</th>
+      <th scope="col">user_id</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% Book.all.each do |book| %>
+    <tr>
+      <td ><%= book.id %></td>
+      <td ><%= book.title %></td>
+      <td ><%= book.description %></td>
+      <td ><%= book.category %></td>
+      <td ><%= book.user_id %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

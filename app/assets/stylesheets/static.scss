@@ -1,0 +1,35 @@
+/* import 
+@import "bootstrap-sprockets"; */
+@import "bootstrap";
+
+
+/* universal */
+html,
+body {
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+/* imges */
+img {
+  object-fit: cover;
+}
+
+/* navbar */
+.navbar {
+  width: auto;
+}
+
+/* footer */
+footer small {
+  float: right;
+}
+
+footer a {
+  color: gray;
+  padding-left: 0.7em;
+}
+
+footer a:hover {
+  color: black;
+}
