@@ -1,12 +1,17 @@
-# create default user
-User.create!(name: 'firmo holanda', email: 'firmo@viize.com', password: 'foobar', password_confirmation: 'foobar')
+# create admin user
+User.create!(name: 'firmo holanda',
+             email: 'firmo@viize.com',
+             admin: true,
+             password: 'foobar',
+             password_confirmation: 'foobar')
 
 2.times do |n|
   name = Faker::Name.name.downcase
   email = "example-#{n + 1}@example.com"
+  admin = false
   password = 'foobar'
   password_confirmation = 'foobar'
-  User.create!(name: name, email: email, password: password, password_confirmation: password_confirmation)
+  User.create!(name: name, email: email, admin: admin, password: password, password_confirmation: password_confirmation)
 end
 
 # create books

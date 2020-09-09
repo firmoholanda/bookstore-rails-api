@@ -55,4 +55,9 @@ class Message
   def self.favourite_deleted
     'book removed from favourites successfully'
   end
+
+  # admin
+  def self.not_admin
+    'cannot perform this action, user not admin'
+  end
 end
