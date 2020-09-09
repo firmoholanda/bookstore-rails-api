@@ -1,6 +1,6 @@
 # 📃 bookstore-rails-api
 
-api for bookstore-react-redux front-end app. this REST api alows to manage database resources. a signed user can: add, remove, list and update books as well as select a favourite book.
+api for bookstore-react-redux front-end app. this REST api allows to manage database resources. a signed user can: add, remove, list and update books as well as select a favourite book.
 
 
 ## 📡 technologies used
